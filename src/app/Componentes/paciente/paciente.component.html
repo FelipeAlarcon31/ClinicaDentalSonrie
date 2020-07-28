@@ -1,0 +1,95 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="container mt-5" style="text-align: center;">
+            <h3>Listado de Pacientes</h3>
+            <hr>
+            <div style="text-align: right;">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#newPaciente">Nuevo Paciente</button>
+            </div>
+
+
+            <div class="modal fade" id="newPaciente" tabindex="-1" role="dialog" aria-labelledby="NuevoPaciente" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title " id="NuevoPaciente">Ingresar Nuevo Paciente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form class="form-group">
+
+                                <div class="container" style="text-align: center;">
+                                    <div class="row row-cols-2">
+                                        <div class="col"><label type="text">Nombres:</label></div>
+                                        <div class="col"> <input class="col-10" type="text" name="" id="nombre" placeholder="Nombres"></div>
+                                        <div class="col"><label>Apellidos:</label></div>
+                                        <div class="col"><input class="col-10" type="text" name="" id="apellido" placeholder="Apellidos"></div>
+                                        <div class="col"><label for="">Télefono:</label></div>
+                                        <div class="col"><input class="col-10" type="number" name="" id="Télefono" placeholder="999999999"></div>
+                                        <div class="col"><label for="">Correo:</label></div>
+                                        <div class="col"><input class="col-10" type="email" name="" id="email" placeholder="ejemplo@mail.com"></div>
+                                        <div class="col"><label for="">Dirección:</label></div>
+                                        <div class="col"><input class="col-10" type="text" name="" id="direccion" placeholder="Av.Andres Bello #1, Chillán"></div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="container" style="text-align: center;">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary"> Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Rut</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Télefono</th>
+                        <th scope="col">Email</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning text-center mt-3">
+                <h4 class="alert-heading">No existen Registros</h4>
+                <p>
+                    <i class="fa fa-exclamation  fa-2x"> </i>
+                </p>
+
+            </div>
+
+            <div class="alert alert-info text-center mt-3">
+                <h4 class="alert-heading">Cargando</h4>
+                <p>
+                    <i class="fa fa-sync-alt fa-spin fa-2x"> </i>
+                </p>
+                <p class="mb-0">
+                    Espere por favor
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
