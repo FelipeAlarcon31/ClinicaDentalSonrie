@@ -19,20 +19,23 @@
                         </div>
                         <div class="modal-body">
 
-                            <form class="form-group">
+                            <form class="form-group" (ngSubmit)="guardar(f)" #f="ngForm">
 
                                 <div class="container" style="text-align: center;">
                                     <div class="row row-cols-2">
+                                        <div class="col"><label type="text">Rut:</label></div>
+                                        <div class="col"> <input class="col-10" type="text" name="Rut" [(ngModel)]="paciente.rut" id="Rut" required placeholder="11111111"></div>
                                         <div class="col"><label type="text">Nombres:</label></div>
-                                        <div class="col"> <input class="col-10" type="text" name="" id="nombre" placeholder="Nombres"></div>
+                                        <div class="col"> <input class="col-10" type="text" name="nombre" [(ngModel)]="paciente.nombre" id="nombre" placeholder="Nombres"></div>
                                         <div class="col"><label>Apellidos:</label></div>
-                                        <div class="col"><input class="col-10" type="text" name="" id="apellido" placeholder="Apellidos"></div>
+                                        <div class="col"><input class="col-10" type="text" name="apellido" id="apellido" [(ngModel)]="paciente.apellido" placeholder="Apellidos"></div>
                                         <div class="col"><label for="">Télefono:</label></div>
-                                        <div class="col"><input class="col-10" type="number" name="" id="Télefono" placeholder="999999999"></div>
+                                        <div class="col"><input class="col-10" type="number" name="telefono" id="Télefono" [(ngModel)]="paciente.telefono" placeholder="999999999"></div>
                                         <div class="col"><label for="">Correo:</label></div>
-                                        <div class="col"><input class="col-10" type="email" name="" id="email" placeholder="ejemplo@mail.com"></div>
+                                        <div class="col"><input class="col-10" type="email" name="email" id="email" [(ngModel)]="paciente.correo" placeholder="ejemplo@mail.com"></div>
                                         <div class="col"><label for="">Dirección:</label></div>
-                                        <div class="col"><input class="col-10" type="text" name="" id="direccion" placeholder="Av.Andres Bello #1, Chillán"></div>
+                                        <div class="col"><input class="col-10" type="text" name="direccion" id="direccion" [(ngModel)]="paciente.direccion" placeholder="Av.Andres Bello #1, Chillán"></div>
+                                        <div class="align-content-center"><button type="submit" class="btn btn-primary"> Guardar</button></div>
                                     </div>
                                 </div>
 
@@ -42,53 +45,41 @@
 
 
                         </div>
-                        <div class="modal-footer">
-                            <div class="container" style="text-align: center;">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary"> Guardar</button>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
 
+        <div class="container ">
+            <div class="card-body">
 
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Rut</th>
-                        <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Télefono</th>
-                        <th scope="col">Email</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Télefono</th>
+                            <th scope="col">Email</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let paciente of pacientes; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{paciente.rut}}</td>
+                            <td>{{paciente.nombre}}</td>
+                            <td>{{paciente.apellido}}</td>
+                            <td>{{paciente.direccion}}</td>
+                            <td>{{paciente.telefono}}</td>
+                            <td>{{paciente.correo}}</td>
+                        </tr>
 
-            <div class="alert alert-warning text-center mt-3">
-                <h4 class="alert-heading">No existen Registros</h4>
-                <p>
-                    <i class="fa fa-exclamation  fa-2x"> </i>
-                </p>
-
-            </div>
-
-            <div class="alert alert-info text-center mt-3">
-                <h4 class="alert-heading">Cargando</h4>
-                <p>
-                    <i class="fa fa-sync-alt fa-spin fa-2x"> </i>
-                </p>
-                <p class="mb-0">
-                    Espere por favor
-                </p>
-
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
