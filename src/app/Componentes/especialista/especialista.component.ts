@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import {  EspecialistaService } from '../../services/especialista.service';
+import { EspecialistaModel } from '../../Models/especialista.model';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-especialista',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EspecialistaComponent implements OnInit {
 
-  constructor() { }
+  especialista = new EspecialistaModel();
+  especialistas: EspecialistaModel[] = [];
+
+  constructor(private especialistaService:EspecialistaService, private router:Router) { }
 
   ngOnInit(): void {
+    this.especialistaService.getEspecialistas().subscribe( resp=>{
+      this.especialistas=resp
+    });
+  }
+
+  guardar(form: NgForm){
+
+    if(form.invalid){
+      console.log('Formulario no válido');
+      return;
+
+    }
+
+    this.especialistaService.crearEspecialista(this.especialista).subscribe( resp=>{
+      console.log(resp);
+
+      Swal.fire({
+        icon: 'success',
+       title: 'Paciente creado con éxito.',
+     });
+
+    });
+
   }
 
 }
