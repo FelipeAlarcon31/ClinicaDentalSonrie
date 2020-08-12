@@ -68,28 +68,26 @@
                                     <div class="row row-cols-2">
                                         <div class="col"><label type="text">Paciente: </label></div>
                                         <div>
-                                            <input disabled value="{{p.rut}}">
+                                            <input disabled value="{{p.rut}}" type="text" [(ngModel)]="consulta.rut" name="rut" id="rut">
                                         </div>
-                                        <div class="col "><label type="text ">Fecha:</label></div>
-                                        <div class="col "> <input class="col-10 " type="date" name="fecha" [(ngModel)]="consulta.fecha " id="fecha"></div>
-                                        <div class="col "><label type="text ">Hora:</label></div>
-                                        <div class="col "> <input class="col-10 " type="time" name="fecha" [(ngModel)]="consulta.hora " id="hora"></div>
+                                        <div class="col"><label type="text ">Fecha:</label></div>
+                                        <div class="col"> <input class="col-10 " type="date" name="fecha" [(ngModel)]="consulta.fecha" id="fecha"></div>
+                                        <div class="col"><label type="text ">Hora:</label></div>
+                                        <div class="col"> <input class="col-10 " type="time" name="fecha" [(ngModel)]="consulta.hora" id="hora"></div>
 
-                                        <div class="col "><label>Tipo de Atención:</label></div>
-                                        <div class="col "><select [(ngModel)]="consulta.tipoAtencion" name="tipoAtencion" class="form-control">
+                                        <div class="col"><label type="text">Tipo de Atención:</label></div>
+                                        <div class="col"><select class="col-10" [(ngModel)]="consulta.tipoAtencion" name="tipoAtencion">
                                           <option value="Rehabilitación Oral">Rehabilitación Oral</option>
                                           <option value="Ortodoncia">Ortodoncia</option>
                                         </select></div>
-                                        <div class="col "><label>Especialista:</label></div>
-                                        <div class="col ">
+                                        <div class="col"><label>Especialista:</label></div>
+                                        <div class="col"><select class="col-10" [(ngModel)]="consulta.especialista" name="especialista" id="">
+                                          <option  *ngFor="let e of especialistas" value="{{e.rut}}"> {{e.nombre}} {{e.apellido}}</option>
+                                        </select></div>
 
-                                            <Select [(ngModel)]="consulta.especialista" name="especialista">
-                                            <option *ngFor="let e of especialistas" [value]="e.rut"> {{e.nombre}} {{e.apellido}}</option>
-                                        </Select>
-                                        </div>
 
-                                        <div class="col "><label for=" ">Observación:</label></div>
-                                        <div class="col "><input class="col-10 " type="text" name="observacion" id="obseracion" [(ngModel)]="consulta.observacion" placeholder="Observación"></div>
+                                        <div class="col"><label for=" ">Observación:</label></div>
+                                        <div class="col"><textarea class="col-10" rows="4" type="text" name="observacion" id="obseracion" [(ngModel)]="consulta.observacion" placeholder="Observación"></textarea></div>
                                         <div class="align-content-center "><button type="submit " class="btn btn-primary "> Guardar</button></div>
                                     </div>
                                 </div>

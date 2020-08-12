@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="container mt-5" style="text-align: center;">
+            <h3>Listado de Consultas</h3>
+            <hr>
+            <div class="container ">
+                <div class="card-body ">
+
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th scope="col ">Rut</th>
+                                <th scope="col ">Fecha</th>
+                                <th scope="col ">Hora</th>
+                                <th scope="col ">Tipo Atención</th>
+                                <th scope="col ">Especialista</th>
+                                <th scope="col ">Observación</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let consulta of consultas; let i=index ">
+
+                                <td>{{consulta.rut}}</td>
+                                <td>{{consulta.fecha}}</td>
+                                <td>{{consulta.hora}}</td>
+                                <td>{{consulta.tipoAtencion}}</td>
+                                <td>{{consulta.especialista}}</td>
+                                <td>{{consulta.observacion}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

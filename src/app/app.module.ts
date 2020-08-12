@@ -16,6 +16,8 @@ import { PacienteComponent } from './Componentes/paciente/paciente.component';
 import { NuevoPacienteComponent } from './Componentes/Formularios/nuevo-paciente/nuevo-paciente.component';
 import { NuevaConsultaComponent } from './Componentes/Formularios/nueva-consulta/nueva-consulta.component';
 import { EspecialistaComponent } from './Componentes/especialista/especialista.component';
+import { ConsultaComponent } from './Componentes/consulta/consulta.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EspecialistaComponent } from './Componentes/especialista/especialista.c
     PacienteComponent,
     NuevoPacienteComponent,
     NuevaConsultaComponent,
-    EspecialistaComponent
+    EspecialistaComponent,
+    ConsultaComponent,
+
   ],
   imports: [
     BrowserModule,

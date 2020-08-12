@@ -33,6 +33,8 @@ export class PacienteComponent implements OnInit {
     this.especialistaService.getEspecialistas().subscribe(resp=>{
       this.especialistas=resp
     });
+
+
   }
 
   obtenerPaciente(p:any){
@@ -48,6 +50,10 @@ export class PacienteComponent implements OnInit {
       return;
 
     }
+
+    console.log(this.p.rut);
+
+    this.consulta.rut=this.p.rut;
 
     this.consultaService.crearConsulta(this.consulta).subscribe(resp=>{
       console.log(resp);

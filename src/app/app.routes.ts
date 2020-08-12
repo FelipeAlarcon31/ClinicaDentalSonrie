@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { NuevoPacienteComponent } from './Componentes/Formularios/nuevo-paciente/nuevo-paciente.component';
 import { NuevaConsultaComponent } from './Componentes/Formularios/nueva-consulta/nueva-consulta.component';
 import { EspecialistaComponent } from './Componentes/especialista/especialista.component';
+import { ConsultaComponent } from './Componentes/consulta/consulta.component';
 
 
 const APP_ROUTES: Routes = [
@@ -12,6 +13,7 @@ const APP_ROUTES: Routes = [
   {path: 'paciente', component: PacienteComponent},
   {path:  'IngresarPaciente', component: NuevoPacienteComponent},
   {path:  'NuevaConsulta', component: NuevaConsultaComponent},
+  {path:  'consulta', component: ConsultaComponent},
   {path:  'especialistas', component: EspecialistaComponent},
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
