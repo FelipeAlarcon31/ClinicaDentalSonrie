@@ -36,9 +36,13 @@ export class EspecialistaComponent implements OnInit {
 
       Swal.fire({
         icon: 'success',
-       title: 'Paciente creado con éxito.',
-     });
+       title: 'Especialista creado con éxito.'
 
+     }).then(resp=>{
+      if(resp.value){
+
+       this.router.navigateByUrl("home");
+     }});
     });
 
   }

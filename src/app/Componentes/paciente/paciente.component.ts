@@ -51,21 +51,32 @@ export class PacienteComponent implements OnInit {
 
     }
 
+
     console.log(this.p.rut);
+
 
     this.consulta.rut=this.p.rut;
 
+
+
     this.consultaService.crearConsulta(this.consulta).subscribe(resp=>{
       console.log(resp);
-      Swal.fire({
-        icon: 'success',
-       title: 'Consulta creada con éxito.',
-     })
 
+    });
+    Swal.fire({
+      icon: 'success',
+     title: 'Consulta creada con éxito.'
+
+   }).then(resp=>{
+    if(resp.value){this.router.navigate(['/consulta']);
+
+    }
 
      } );
 
+
   }
+
   guardar(form: NgForm){
 
     if(form.invalid){

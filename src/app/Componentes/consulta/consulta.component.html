@@ -3,6 +3,12 @@
         <div class="container mt-5" style="text-align: center;">
             <h3>Listado de Consultas</h3>
             <hr>
+            <div class="container">
+
+                <label for="">Buscar:</label>
+                <input type="date" name="fecha" #fecha id="fecha">
+                <button class="btn btn-primary" (click)="buscar(fecha.value)" type="submit" class="btn btn-primary">Ir</button>
+            </div>
             <div class="container ">
                 <div class="card-body ">
 
@@ -19,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let consulta of consultas; let i=index ">
+                            <tr *ngFor="let consulta of consultas1; let i=index ">
 
                                 <td>{{consulta.rut}}</td>
                                 <td>{{consulta.fecha}}</td>
