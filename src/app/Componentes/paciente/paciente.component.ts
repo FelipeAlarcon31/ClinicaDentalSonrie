@@ -21,6 +21,8 @@ export class PacienteComponent implements OnInit {
   pacientes: PacienteModel[] = [];
   especialistas: EspecialistaModel[] =[];
   p=new PacienteModel();
+  oculto = ''
+  oculto2 = ''
   constructor( private pacienteService: PacienteService, private router:Router, private especialistaService:EspecialistaService,
     private consultaService:ConsultaService) { }
 
@@ -38,7 +40,8 @@ export class PacienteComponent implements OnInit {
   }
 
   obtenerPaciente(p:any){
-
+    console.log('holi')
+    this.oculto='block'
     this.p=p;
   }
 
@@ -51,42 +54,30 @@ export class PacienteComponent implements OnInit {
 
     }
 
-
     console.log(this.p.rut);
-
 
     this.consulta.rut=this.p.rut;
 
-
-
     this.consultaService.crearConsulta(this.consulta).subscribe(resp=>{
       console.log(resp);
-
+      Swal.fire({
+        icon: 'success',
+       title: 'Consulta creada con éxito.'
+  
+     }).then(resp=>{
+       this.oculto = ''
+      if(resp.value){this.router.navigate(['/consulta']);
+      }
+  
+      });
     });
-    Swal.fire({
-      icon: 'success',
-     title: 'Consulta creada con éxito.'
-
-   }).then(resp=>{
-    if(resp.value){this.router.navigate(['/consulta']);
-
-    }
-
-     } );
-
-
   }
 
   guardar(form: NgForm){
-
     if(form.invalid){
 
       console.log('Formulario no válido');
-
-
-
       return;
-
     }
 
     this.pacienteService.crearPaciente(this.paciente).subscribe( (resp:any)=>{
@@ -94,18 +85,22 @@ export class PacienteComponent implements OnInit {
       Swal.fire({
         icon: 'success',
        title: 'Paciente creado con éxito.',
+     }).then (resp =>{
+       if(resp.value){
+         this.oculto2 = ''
+         window.location.reload();
+       }
      });
 
 
     });
-
-
-
-
-
-
   }
 
-
-
+  abrirNuevoPaciente(){
+    this.oculto2='block'
+  }
+  cerrarModal(){
+    this.oculto2=''
+    this.oculto=''
+  }
 }
