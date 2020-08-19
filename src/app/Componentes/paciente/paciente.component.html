@@ -4,11 +4,11 @@
             <h3>Listado de Pacientes</h3>
             <hr>
             <div style="text-align: right;">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#newPaciente">Nuevo Paciente</button>
+                <button class="btn btn-primary" (click)="abrirNuevoPaciente()">Nuevo Paciente</button>
             </div>
 
 
-            <div class="modal fade" id="newPaciente" tabindex="-1" role="dialog" aria-labelledby="NuevoPaciente" aria-hidden="true">
+            <div class="modal" id="newPaciente" [ngStyle]="{'display': oculto2}" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -41,22 +41,18 @@
                                 </div>
 
                             </form>
-
-
-
-
                         </div>
 
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="newConsulta" tabindex="-1" role="dialog" aria-labelledby="NuevaConsulta" aria-hidden="true">
+            <div class="modal" id="newConsulta" tabindex="-1" [ngStyle]="{'display': oculto}" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title " id="NuevaConsulta">Ingresar Consulta</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" (click)="cerrarModal()">
                     <span aria-hidden="true">&times;</span>
                   </button>
                         </div>
@@ -91,12 +87,7 @@
                                         <div class="align-content-center "><button type="submit " class="btn btn-primary "> Guardar</button></div>
                                     </div>
                                 </div>
-
                             </form>
-
-
-
-
                         </div>
 
                     </div>
@@ -108,7 +99,7 @@
         <div class="container ">
             <div class="card-body ">
 
-                <table class="table table-striped ">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col ">Rut</th>
@@ -129,7 +120,7 @@
                             <td>{{paciente.direccion}}</td>
                             <td>{{paciente.telefono}}</td>
                             <td>{{paciente.correo}}</td>
-                            <td><i class="far fa-address-book " data-toggle="modal" data-target="#newConsulta" (click)="obtenerPaciente(paciente)"></i></td>
+                            <td><button class="btn btn-info" (click)="obtenerPaciente(paciente)"><i class="far fa-address-book "></i></button></td>
                         </tr>
 
                     </tbody>
